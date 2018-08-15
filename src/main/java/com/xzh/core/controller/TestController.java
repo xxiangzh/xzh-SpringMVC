@@ -9,30 +9,23 @@ import com.xzh.annotation.MyController;
 import com.xzh.annotation.MyRequestMapping;
 import com.xzh.annotation.MyRequestParam;
 
+/**
+ * @author 向振华
+ * @date 2018/8/15 9:49
+ */
 @MyController
-@MyRequestMapping("/test")
+@MyRequestMapping
 public class TestController {
-	
 
-	
-	 @MyRequestMapping("/doTest")
-    public void test1(HttpServletRequest request, HttpServletResponse response,
+	 @MyRequestMapping("/test")
+    public void test(HttpServletRequest request, HttpServletResponse response,
     		@MyRequestParam("param") String param){
  		System.out.println(param);
 	    try {
-            response.getWriter().write( "doTest method success! param:"+param);
+            response.getWriter().write( "test method success! param:"+param);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-	 
-	 
-	 @MyRequestMapping("/doTest2")
-    public void test2(HttpServletRequest request, HttpServletResponse response){
-        try {
-            response.getWriter().println("doTest2 method success!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }
